@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int reverse(int number){
+  while(number % 10 == 0)
+    number /= 10;
+  int power = -1, cp = number, solution;
+  while(cp){
+    cp /= 10;
+    ++power;
+  }
+  while(number){
+    solution += (number % 10) * pow(10, power);
+    --power;
+    number /= 10;
+  }
+  return solution;
+}
+int main(){
+  int counter, first, second, rev;
+  cin >> counter;
+  while(counter != 0){
+    cin >> first >> second;
+    rev = reverse(first) + reverse(second);
+    cout << reverse(rev) << endl;
+    --counter;
+  }
+  return 0;
+}
